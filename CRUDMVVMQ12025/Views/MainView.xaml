@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRUDMVVMQ12025.Views.MainView"
+             xmlns:viewModel="clr-namespace:CRUDMVVMQ12025.ViewModels"
+             x:DataType="viewModel:MainViewModel"
+             xmlns:model="clr-namespace:CRUDMVVMQ12025.Models"
+             Title="">
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="10">
+            <Button Text="Agregar Empleado" Command="{Binding GoToAddEditViewCommand}"/>
+
+            <Grid Margin="5,5,5,5" RowDefinitions="Auto" ColumnDefinitions="*,*,*" >
+                <Label Text="Nombre" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
+                <Label Text="Dirección" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
+                <Label Text="Correo Electrónico" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
+            </Grid>
+            <CollectionView ItemsSource="{Binding EmpleadoCollection}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Empleado">
+                        <Grid RowSpacing="0" RowDefinitions="Auto" ColumnDefinitions="*,*,*">
+                            <Label Text="{Binding Nombre}" Grid.Row="1" Grid.Column="0" />
+                            <Label Text="{Binding Direccion}" Grid.Row="1" Grid.Column="1" />
+                            <Label Text="{Binding Email}" Grid.Row="1" Grid.Column="2" />
+                            <Grid.GestureRecognizers>
+
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

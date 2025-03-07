@@ -2,17 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CRUDMVVMQ12025.Views.AddEditView"
+             xmlns:viewModel="clr-namespace:CRUDMVVMQ12025.ViewModels"
+             x:DataType="viewModel:AddEditViewModel"
              Title="">
     <VerticalStackLayout Padding="30" Spacing="5">
         <Label Text="Nombre completo:" />
-        <Entry Text="" Keyboard="Text" />
+        <Entry Text="{Binding Nombre}" Keyboard="Text" />
 
         <Label Text="Dirección:" />
-        <Entry Text="" Keyboard="Text" />
+        <Entry Text="{Binding Direccion}" Keyboard="Text" />
 
         <Label Text="Correo Electrónico:" />
-        <Entry Text="" Keyboard="Email" />
+        <Entry Text="{Binding Email}" Keyboard="Email" />
 
-        <Button Text="Guardar" Background="Green" />
+        <Button Text="Guardar" Background="Green" Command="{Binding AddUpdateCommand}" />
     </VerticalStackLayout>
 </ContentPage>

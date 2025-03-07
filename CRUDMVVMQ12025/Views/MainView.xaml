@@ -23,7 +23,7 @@
                             <Label Text="{Binding Direccion}" Grid.Row="1" Grid.Column="1" />
                             <Label Text="{Binding Email}" Grid.Row="1" Grid.Column="2" />
                             <Grid.GestureRecognizers>
-
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModel:MainViewModel}},Path=SelectEmpleadoCommand}" CommandParameter="{Binding .}" />
                             </Grid.GestureRecognizers>
                         </Grid>
                     </DataTemplate>
